@@ -20,14 +20,20 @@ body {
 
 header {
     position: absolute;
-    top: 0;
+    top: 25%;
     width: 100%;
 }
-.header--nav {
+
+button:hover{
+    cursor: pointer;
+}
+
+.header--list {
     display: flex;
-    width: 100%;
+    list-style: none;
     justify-content: space-between;
-    
+    width: 100%;
+    padding: 10px;
 }
 
 .header--button {
@@ -36,4 +42,26 @@ header {
     background-color: transparent;
     border: 1px solid gray;
     border-radius: 10px;
+    color: white;
+}
+
+main {
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    width: 100%;
+}
+
+.hero--title {
+    font-size: 2.6rem;
+
+}
+
+.hero--time {
+    font-size: 2rem;
 }
