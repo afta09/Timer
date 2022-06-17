@@ -16,13 +16,13 @@ const hero = document.querySelector("#principal");
 
 let secondsValue = 0;
 let minutesValue = 0;
-let currentChronometer;
+let currentInterval;
 let currentButton;
 
 function startChronometer(){
     currentButton = event.target;
     currentButton.disabled = true;
-    currentChronometer = setInterval(() => {
+    currentInterval = setInterval(() => {
         secondsValue +=1
         if(secondsValue === 60) {
             secondsValue = 0;
@@ -52,11 +52,17 @@ function resetChronometer() {
     minutesSpan.textContent = "00";
 }
 
+function startTimer() {
+    event.preventDefault();
+    const minutes = parseInt(event.target.minutes.value);
+    const seconds = parseInt(event.target.seconds.value);
+    currentInterval = setInterval (() => {
+
+    })
+    
+}
+
 function executeTimer() {
-    function startTimer() {
-        event.preventDefault();
-        console.log("Hola");
-    }
 
     hero.innerHTML = 
     
@@ -65,12 +71,14 @@ function executeTimer() {
       <p id="time"><span id="minutes">00</span>:<span id="seconds">00</span></p>
     </div>
     <div class="hero--buttons">
-      <form>
-        <button type="button" onclick = "startTimer()"></button>
+      <form onsubmit="startTimer()">
+        <input type="number" Placeholder = "Escribe los minutos" id="minutesInput" name="minutes">
+        <input type="number" Placeholder = "Escribe los Segundo" id="secondsInput" name= "seconds">
+        <button type="submit">Star</button>
        </form>
     </div>`;
 
-let secondsSpan = document.querySelector("#seconds");
-let minutesSpan = document.querySelector("#minutes");
-console.log(secondsSpan);
+ secondsSpan = document.querySelector("#seconds");
+ minutesSpan = document.querySelector("#minutes");
+
 }
