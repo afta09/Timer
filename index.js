@@ -56,9 +56,29 @@ function startTimer() {
     event.preventDefault();
     const minutes = parseInt(event.target.minutes.value);
     const seconds = parseInt(event.target.seconds.value);
-    currentInterval = setInterval (() => {
 
-    })
+    minutesSpan.textContent = minutes;
+    secondsSpan.textContent = seconds;
+    secondsValue = seconds;
+    minutesValue = minutes;
+    currentInterval = setInterval (() => {
+        secondsValue -=1;
+        if(secondsValue === -1) {
+            secondsValue = 59;
+            minutesValue -= 1;
+        }
+        if(minutesValue === 0 && secondsValue === 0) {
+            const container = document.querySelector(".hero--time");
+            const title = document.createElement("h2");
+            title.textContent = "el timer a terminado";
+            container.appendChild(title);
+            clearInterval(currentInterval);
+        }
+        console.log(secondsValue);
+        minutesSpan.textContent = formatValue(minutes.value);
+        secondsSpan.textContent = formatValue(seconds.value);
+        
+    },1000);
     
 }
 
